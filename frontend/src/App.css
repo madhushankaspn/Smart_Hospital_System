@@ -6,7 +6,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body, html, #root { width: 100%; height: 100%; overflow-x: hidden; background: #f8fbfb; }
+body, html, #root { width: 100%;  overflow-x: hidden; background: #f8fbfb; }
 
 /* --- Hero Section & Background --- */
 .hero-section {
