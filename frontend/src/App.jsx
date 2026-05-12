@@ -60,7 +60,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 2. Stats Banner (අලුතින් එකතු කළ කොටස) */}
+      {/* 2. Premium Floating Stats Banner */}
       <div className="stats-banner">
         <div className="stat-item"><h2>50+</h2><p>Specialist Doctors</p></div>
         <div className="stat-item"><h2>24/7</h2><p>Emergency Care</p></div>
@@ -68,24 +68,28 @@ const Home = () => {
         <div className="stat-item"><h2>99%</h2><p>Success Rate</p></div>
       </div>
 
-      {/* 3. Services Section (අලුතින් එකතු කළ කොටස) */}
+      {/* 3. Modern Services Section */}
       <div className="services-section">
         <h2 className="section-title">Our Premium Services</h2>
         <div className="services-grid">
           <div className="service-card">
-            <h3>❤️ Cardiology</h3>
+            <div className="icon-wrapper">❤️</div>
+            <h3>Cardiology</h3>
             <p>State-of-the-art heart care and surgery facilities with top-tier specialists.</p>
           </div>
           <div className="service-card">
-            <h3>🧠 Neurology</h3>
+            <div className="icon-wrapper">🧠</div>
+            <h3>Neurology</h3>
             <p>Advanced diagnosis and treatment for neurological disorders and brain health.</p>
           </div>
           <div className="service-card">
-            <h3>✨ AI Diagnostics</h3>
+            <div className="icon-wrapper">✨</div>
+            <h3>AI Diagnostics</h3>
             <p>Predictive health analysis using machine learning to catch diseases early.</p>
           </div>
           <div className="service-card">
-            <h3>💊 Smart Pharmacy</h3>
+            <div className="icon-wrapper">💊</div>
+            <h3>Smart Pharmacy</h3>
             <p>Automated prescription and inventory management for zero delays.</p>
           </div>
         </div>

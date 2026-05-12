@@ -30,15 +30,23 @@ body, html, #root {
 }
 
 /* Premium Navbar */
+/* Premium Navbar (Fixed to Top) */
 .pro-navbar {
+  position: fixed; /* මේකෙන් තමයි තිරයේ උඩම අලවන්නේ */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* අනිත් හැමදේටම වඩා උඩින් පේන්න මේක දෙනවා */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 15px 60px;
+  /* පල්ලෙහා සුදු පාට කොටස් වලට යද්දිත් පැහැදිලිව පේන්න තද විනිවිද පේන පාටක් දැම්මා */
+  background: rgba(10, 25, 47, 0.85); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .logo h2 {
@@ -221,80 +229,155 @@ body, html, #root {
   overflow-x: hidden;
 }
 
-/* Stats Banner */
+/* --- Floating Stats Banner --- */
 .stats-banner {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #64ffda;
-  color: #0a192f;
-  padding: 50px 20px;
+  /* තද නිල් පාට Gradient එකක් */
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  color: #ffffff;
+  padding: 40px 20px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  width: 85%;
+  max-width: 1200px;
+  /* මේකෙන් තමයි උඩ පින්තූරෙයි පල්ලෙහා සුදු පාටෙයි මැදට පාවෙන්න හදන්නේ */
+  margin: -60px auto 60px auto; 
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(100, 255, 218, 0.1);
 }
 
 .stat-item h2 { 
   font-size: 3.5rem; 
   margin-bottom: 5px; 
   font-weight: 900; 
+  /* අකුරු වලට ලස්සන Gradient එකක් */
+  background: linear-gradient(45deg, #64ffda, #00b4d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .stat-item p { 
-  font-size: 1.1rem; 
-  font-weight: 700; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: #8892b0; 
   text-transform: uppercase; 
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
-/* Services Section */
+/* --- Services Section --- */
 .services-section {
-  padding: 100px 10%;
-  background-color: #f8fbfb;
+  padding: 60px 5% 100px 5%;
+  background: linear-gradient(to bottom, #f4f7f6, #ffffff);
   text-align: center;
 }
 
 .section-title {
   font-size: 2.8rem;
   color: #0a192f;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+/* Title එක යටින් තියෙන ලස්සන ඉර */
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: #64ffda;
+  bottom: -10px;
+  left: 25%;
+  border-radius: 2px;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Modern Hover Cards */
 .service-card {
   background: white;
   padding: 40px 30px;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: left;
-  border-bottom: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  z-index: 1;
+}
+
+/* කාඩ් එක ඇතුළේ තියෙන ලස්සන රවුම් හැඩය */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 180, 216, 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.4s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border-bottom: 4px solid #64ffda;
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border-color: rgba(100, 255, 218, 0.5);
 }
 
-.service-card h3 { 
-  font-size: 1.6rem; 
-  color: #2c3e50; 
-  margin-bottom: 20px; 
+.service-card:hover::before {
+  transform: scale(1.5);
+  background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(0, 180, 216, 0.2));
 }
 
-.service-card p { 
-  color: #6a7c92; 
-  line-height: 1.7; 
+/* Icon එක තියෙන Box එක */
+.icon-wrapper {
+  width: 65px;
+  height: 65px;
+  background: #f0fdfa;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .icon-wrapper {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #0a192f;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-card p {
+  color: #5a6a85;
+  line-height: 1.7;
   font-size: 1.05rem;
 }
 
-/* Footer */
+/* Footer (පරණ එකමයි) */
 .footer {
   background-color: #0a192f;
   color: #8892b0;
