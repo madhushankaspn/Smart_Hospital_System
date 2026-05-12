@@ -1,142 +1,64 @@
-/* Basic Reset for Full Screen */
+/* --- Global Reset --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body, html, #root {
-  width: 100%;
-  height: 100%;
-}
+body, html, #root { width: 100%; height: 100%; overflow-x: hidden; background: #f8fbfb; }
 
-/* Background Slider Area */
-.pro-home {
+/* --- Hero Section & Background --- */
+.hero-section {
   height: 100vh;
-  width: 100vw;
   background-size: cover;
   background-position: center;
-  transition: background-image 1s ease-in-out; /* Smooth transition between images */
+  transition: background-image 1s ease-in-out;
 }
 
-/* Dark Glass Overlay */
+/* දකුණු පැත්තෙන් පින්තූරේ පේන්න, වම් පැත්ත කළු කරන Gradient එක */
 .hero-overlay {
-  background: linear-gradient(to right, rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.5));
+  background: linear-gradient(to right, rgba(11, 22, 44, 0.95) 0%, rgba(11, 22, 44, 0.8) 40%, rgba(11, 22, 44, 0.3) 100%);
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Premium Navbar */
-/* Premium Navbar (Fixed to Top) */
-.pro-navbar {
-  position: fixed; /* මේකෙන් තමයි තිරයේ උඩම අලවන්නේ */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* අනිත් හැමදේටම වඩා උඩින් පේන්න මේක දෙනවා */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 60px;
-  /* පල්ලෙහා සුදු පාට කොටස් වලට යද්දිත් පැහැදිලිව පේන්න තද විනිවිද පේන පාටක් දැම්මා */
-  background: rgba(10, 25, 47, 0.85); 
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+/* --- Fixed Navbar (Cyan Theme) --- */
+.navbar.fixed-nav {
+  position: fixed;
+  top: 0; width: 100%; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 60px;
+  background: rgba(11, 22, 44, 0.9); /* Dark Navy */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo h2 {
-  color: #fff;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
+.logo h2 { color: #ffffff; font-size: 24px; font-weight: bold; }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: #48f4cb; /* Cyan Hover */ }
 
-.nav-links a {
-  color: #e6f1ff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
-  transition: color 0.3s ease;
-}
+.ai-link { color: #ffb7b2 !important; } /* වෙනස් පාටක් AI එකට */
 
-.nav-links a:hover {
-  color: #64ffda;
+/* Dropdown */
+.dropdown { position: relative; }
+.login-btn { 
+  background: #48f4cb; color: #0b162c; border: none; padding: 10px 20px; 
+  font-weight: bold; border-radius: 4px; cursor: pointer; transition: 0.3s; 
 }
-
-/* AI Feature Badge */
-.ai-badge {
-  background: linear-gradient(45deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold !important;
+.login-btn:hover { background: #3adeb5; }
+.dropdown-menu { 
+  display: none; position: absolute; right: 0; background: #ffffff; 
+  min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 8px; margin-top: 10px; z-index: 1; 
 }
+.dropdown-menu a { color: #333; padding: 12px 16px; display: block; border-bottom: 1px solid #f0f0f0; }
+.dropdown-menu a:hover { background: #f8fbfb; color: #0b162c; }
+.dropdown:hover .dropdown-menu { display: block; }
 
-/* Dropdown Menu for Roles */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background-color: #64ffda;
-  color: #0a192f;
-  padding: 10px 20px;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dropbtn:hover {
-  background-color: #52e0c4;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #ffffff;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  z-index: 1;
-  margin-top: 10px;
-}
-
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-weight: 500;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-  color: #000;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  animation: fadeIn 0.3s;
-}
-
-/* Hero Content Area */
+/* --- Hero Content (Left Aligned) --- */
 .hero-content {
   flex-grow: 1;
   display: flex;
@@ -146,243 +68,51 @@ body, html, #root {
   max-width: 800px;
 }
 
-.animate-title {
-  color: #ccd6f6;
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  animation: slideUp 1s ease-out;
-}
+.hero-title { color: #ffffff; font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+.text-highlight { color: #48f4cb; } /* Cyan Text Highlight */
+.hero-subtitle { color: #bdc3c7; font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; max-width: 600px; }
 
-.animate-subtitle {
-  color: #8892b0;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 600px;
-  animation: slideUp 1.2s ease-out;
-}
-
-/* Buttons */
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  animation: slideUp 1.4s ease-out;
-}
-
-.btn-primary {
-  background-color: #64ffda;
-  color: #0a192f;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #64ffda;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid #64ffda;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover, .btn-secondary:hover {
-  transform: translateY(-3px);
-}
-
-.btn-secondary:hover {
-  background: rgba(100, 255, 218, 0.1);
-}
-
-.temp-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f4f7f6;
-  color: #333;
-}
-
-/* Animations */
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* --- New Sections Layout --- */
-.home-layout {
-  width: 100%;
-  overflow-x: hidden;
-}
+.btn-group { display: flex; gap: 20px; }
+.btn-primary { background: #48f4cb; color: #0b162c; padding: 15px 30px; font-size: 16px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.btn-primary:hover { background: #3adeb5; transform: translateY(-2px); }
+.btn-outline { background: transparent; color: #48f4cb; padding: 15px 30px; font-size: 16px; font-weight: bold; border: 1px solid #48f4cb; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.btn-outline:hover { background: rgba(72, 244, 203, 0.1); }
 
 /* --- Floating Stats Banner --- */
-.stats-banner {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  /* තද නිල් පාට Gradient එකක් */
-  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-  color: #ffffff;
+.stats-container {
+  display: flex; justify-content: space-around; flex-wrap: wrap;
+  background: #b5fffd;
   padding: 40px 20px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  width: 85%;
-  max-width: 1200px;
-  /* මේකෙන් තමයි උඩ පින්තූරෙයි පල්ලෙහා සුදු පාටෙයි මැදට පාවෙන්න හදන්නේ */
-  margin: -60px auto 60px auto; 
-  position: relative;
-  z-index: 10;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  width: 85%; max-width: 1200px;
+  margin: -60px auto 60px auto; /* පින්තූරෙයි සුදු පාටෙයි මැදට ගන්න */
+  position: relative; z-index: 10;
 }
 
-.stat-item h2 { 
-  font-size: 3.5rem; 
-  margin-bottom: 5px; 
-  font-weight: 900; 
-  /* අකුරු වලට ලස්සන Gradient එකක් */
-  background: linear-gradient(45deg, #64ffda, #00b4d8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.stat-box { text-align: center; }
+.stat-box h3 { font-size: 3rem; color: #0b162c; font-weight: 800; margin-bottom: 5px; }
+.stat-box p { font-size: 1rem; color: #7f8c8d; font-weight: 600; text-transform: uppercase; }
 
-.stat-item p { 
-  font-size: 1rem; 
-  font-weight: 600; 
-  color: #8892b0; 
-  text-transform: uppercase; 
-  letter-spacing: 2px;
-}
-
-/* --- Services Section --- */
-.services-section {
-  padding: 60px 5% 100px 5%;
-  background: linear-gradient(to bottom, #f4f7f6, #ffffff);
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.8rem;
-  color: #0a192f;
-  margin-bottom: 20px;
-  font-weight: 800;
-  position: relative;
-  display: inline-block;
-}
-
-/* Title එක යටින් තියෙන ලස්සන ඉර */
-.section-title::after {
-  content: '';
-  position: absolute;
-  width: 50%;
-  height: 4px;
-  background: #64ffda;
-  bottom: -10px;
-  left: 25%;
-  border-radius: 2px;
-}
+/* --- Services Area --- */
+.services-area { padding: 60px 10% 100px 10%; text-align: center; }
+.section-heading { font-size: 2.5rem; color: #0b162c; margin-bottom: 50px; font-weight: 800; }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 60px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
 }
 
-/* Modern Hover Cards */
 .service-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #f0f0f0;
-  z-index: 1;
+  background: #ffffff; padding: 40px 30px; border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+  transition: 0.3s; text-align: left;
+  border-top: 4px solid #48f4cb; /* උඩින් ලස්සන Cyan පාට ඉරක් */
 }
 
-/* කාඩ් එක ඇතුළේ තියෙන ලස්සන රවුම් හැඩය */
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 180, 216, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  transition: all 0.4s ease;
-}
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.icon { font-size: 2.5rem; margin-bottom: 20px; }
+.service-card h4 { font-size: 1.4rem; color: #0b162c; margin-bottom: 15px; font-weight: bold; }
+.service-card p { color: #7f8c8d; line-height: 1.6; }
 
-.service-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  border-color: rgba(100, 255, 218, 0.5);
-}
-
-.service-card:hover::before {
-  transform: scale(1.5);
-  background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(0, 180, 216, 0.2));
-}
-
-/* Icon එක තියෙන Box එක */
-.icon-wrapper {
-  width: 65px;
-  height: 65px;
-  background: #f0fdfa;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.15);
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover .icon-wrapper {
-  transform: rotate(10deg) scale(1.1);
-}
-
-.service-card h3 {
-  font-size: 1.5rem;
-  color: #0a192f;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.service-card p {
-  color: #5a6a85;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-/* Footer (පරණ එකමයි) */
-.footer {
-  background-color: #0a192f;
-  color: #8892b0;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+/* --- Footer --- */
+.footer { background: #0b162c; color: #bdc3c7; text-align: center; padding: 30px; font-size: 0.9rem; }
