@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+spring:
+  mongodb:
+    uri: mongodb+srv://madhushankasupun7_db_user:Supun2001%23@cluster0.pscfopb.mongodb.net/SmartHospitalDB?retryWrites=true&w=majority
