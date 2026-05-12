@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    // මේකෙන් තමයි අපි Database එකට කතා කරලා දත්ත යවන්නේ සහ ගන්නේ
 }
