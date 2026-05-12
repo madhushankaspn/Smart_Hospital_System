@@ -214,3 +214,92 @@ body, html, #root {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* --- New Sections Layout --- */
+.home-layout {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Stats Banner */
+.stats-banner {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #64ffda;
+  color: #0a192f;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stat-item h2 { 
+  font-size: 3.5rem; 
+  margin-bottom: 5px; 
+  font-weight: 900; 
+}
+
+.stat-item p { 
+  font-size: 1.1rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+/* Services Section */
+.services-section {
+  padding: 100px 10%;
+  background-color: #f8fbfb;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: #0a192f;
+  margin-bottom: 60px;
+  font-weight: 800;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.service-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  border-bottom: 4px solid transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-bottom: 4px solid #64ffda;
+}
+
+.service-card h3 { 
+  font-size: 1.6rem; 
+  color: #2c3e50; 
+  margin-bottom: 20px; 
+}
+
+.service-card p { 
+  color: #6a7c92; 
+  line-height: 1.7; 
+  font-size: 1.05rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #0a192f;
+  color: #8892b0;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
